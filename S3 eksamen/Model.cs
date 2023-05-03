@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace S3_eksamen
 {
-    class Model : DbContext
+    public class Model : DbContext
     {
         public DbSet<Bog> Bøger { get; set; }
-        public DbSet<Rejsearrangement> Rejsearrangementer { get; set; }
+        public DbSet<Lån> Lånte { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EFViking; Trusted_Connection = True; ");
+            options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Boghandler; Trusted_Connection = True; ");
         }
 
         public class Bog
@@ -21,8 +22,7 @@ namespace S3_eksamen
             public string Forfatter { get; set; }
             public string Titel { get; set; }
             public string Udgiver { get; set; }
-            public int Udgivelsesår { get; set; }
-            public string Eksemplarer { get; set; }
+            public int Eksemplarer { get; set; }
             public int ISBN { get; set; }
 
         }

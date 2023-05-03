@@ -20,14 +20,17 @@ namespace S3_eksamen
     /// </summary>
     public partial class MainWindow : Window
     {
+        FuncLayer Func = new();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void btnTilføj_Click(object sender, RoutedEventArgs e)
+        private void btnOpretBog_Click(object sender, RoutedEventArgs e)
         {
-
+            Func.OpretBog(tbForfatter.Text, tbTitel.Text, tbUdgiver.Text, int.Parse(tbEksemplarer.Text), int.Parse(tbISBN.Text));
         }
+
+       
     }
 }

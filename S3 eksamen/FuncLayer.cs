@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static S3_eksamen.Model;
 
 namespace S3_eksamen
 {
-    class FuncLayer : INotifyPropertyChanged
+    public class FuncLayer : INotifyPropertyChanged
     {
         public Model Data { get; set; } = new Model();
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -20,13 +23,13 @@ namespace S3_eksamen
         }
 
 
-        public void OpretKunde(string kundeNavn, int KundeAdresse, int kundeTelefon)
+        public void OpretBog(string Forfatter, string Titel, string Udgiver, int Eksemplarer, int ISBN)
         {
-            Kunde kunde;
-            vare = new Vare();
-            vare.Navn = navn;
-            vare.Pris = pris;
-            vare.Indkøbspris = indkøbspris;
+            Bog bog;
+            bog = new Bog();
+            bog.Forfatter = forfatter;
+            bog.Titel = titel;
+            bog.Udgiver = udgiver;
             vare.Beskrivelse = beskrivelse;
             Data.OpretVare(vare);
             RaisePropertyChanged(nameof(Vareoversigt));
